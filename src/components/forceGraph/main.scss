@@ -1,0 +1,525 @@
+.forceMainWarp {
+  width: 100%;
+  height: 100%;
+
+  .mainSvg {
+    transform-origin: 50% 50% 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.force-link {
+  stroke-width: 1;
+  transition-duration: 0.3s;
+  transition-property: stroke-width, stroke;
+
+  &:hover {
+    stroke-width: 2;
+  }
+
+  &.forceClick {
+    stroke-width: 5;
+    text{
+      stroke-width: 1;
+    }
+    marker{
+      stroke:none;
+    }
+  }
+
+  &.severity {
+    stroke: #e37474;
+
+    &.forceClick {
+      stroke: #ab4348!important;
+    }
+  }
+
+  &.high {
+    stroke: #fc6980;
+
+    &.forceClick {
+      stroke: #c7445a!important;
+    }
+  }
+
+  &.middle {
+    stroke: #ffb952;
+
+    &.forceClick {
+      stroke: #e09a22!important;
+    }
+  }
+
+  &.low {
+    stroke: #47a1ff;
+
+    &.forceClick {
+      stroke: #0080c9!important;
+    }
+  }
+
+  &.abnormal {
+    stroke: #a2e5ff;
+
+    &.forceClick {
+      stroke: #5caecc!important;
+    }
+  }
+
+  &.forceDisabeld {
+    stroke: #A5ADBA !important;
+  }
+}
+
+path {
+  cursor: pointer;
+}
+
+
+.innerNode {
+  .forceStatusRect {
+    width:20px;
+    height: 10px;
+    fill:black;
+    stroke: #fff;
+    stroke-width: 0;
+    x: -10;
+    y: -29;
+    &.grey{
+      fill: #DDDDDD;
+      display: none;
+    }
+  }
+  .forceStatusText{
+    transform: translate(-6px, -22px);
+    &.grey{
+      stroke: #000;
+      display: none;
+    }
+  }
+  .forceNode {
+    stroke-width: 2;
+    r: 16;
+    transition-duration: 0.3s;
+    transition-property: r, stroke-width, stroke, fill;
+  }
+  .forceTypeText{
+    transform: translate(7px, 10px);
+  }
+  use {
+    width: 16px;
+    height: 16px;
+    transition-duration: 0.3s;
+    transition-property: width, height, fill;
+    x: -7; 
+    y: -8; 
+    width: 16px; 
+    height: 16px;
+  }
+
+  .forceTypeRect {
+    height: 12px;
+    rx: 6;
+    ry: 6;
+    x:3;
+    y:3;
+  }
+
+  &:hover {
+    path {
+      stroke-width: 2;
+    }
+
+    .forceTypeRect {
+      height: 24px;
+      min-width: 24px;
+      rx: 12;
+      ry: 12;
+    }
+
+    .forceNode {
+      stroke-width: 6;
+      r: 28;
+    }
+    .forceStatusRect {
+      width:36px;
+      height: 18px;
+      x: -18;
+      y: -52;
+    }
+    .forceStatusText{
+      transform: translate(-10px, -39px);
+    }
+  }
+
+  &.forceClick {
+    path {
+      stroke-width: 5;
+    }
+    .forceStatusRect {
+      width:36px;
+      height: 18px;
+      x: -18;
+      y: -59;
+    }
+    
+    .forceStatusText{
+      transform: translate(-10px, -45px);
+    }
+    .forceNode {
+      stroke-width: 4;
+      fill: #fff !important;
+      r: 36;
+    }
+
+    .forceTypeRect {
+      min-width: 24px;
+      height: 24px;
+      rx: 12;
+      ry: 12;
+    }
+
+    .innerCircle {
+      r: 28;
+    }
+  }
+
+  &.severity {
+    .forceNode {
+      fill: #fce6e3;
+      stroke: #e37474;
+    }
+
+    path {
+      stroke: #e37474;
+    }
+
+    use,
+    .forceTypeRect {
+      fill: #e37474;
+    }
+
+    &:hover {
+      .forceNode {
+        fill: #f29794;
+        stroke: #fce6e3;
+      }
+    }
+
+    &.forceClick {
+      path {
+        stroke: #ab4348;
+      }
+
+      .forceNode {
+        stroke: #e37474;
+      }
+
+      .innerCircle {
+        fill: #f29794;
+      }
+    }
+
+    &.forceDisabeld {
+
+      use,
+      .forceTypeRect {
+        fill: #FAD1CD;
+      }
+
+      .forceNode {
+        fill: #FCE6E3;
+        stroke: #FAD1CD;
+      }
+    }
+  }
+
+  &.high {
+    &.forceDisabeld {
+
+      use,
+      .forceTypeRect {
+        fill: #FCBDC5;
+      }
+
+      .forceNode {
+        fill: #FFE6E7;
+        stroke: #FCBDC5;
+      }
+    }
+
+    .forceNode {
+      fill: #ffe6e7;
+      stroke: #fc6980;
+    }
+
+    use,
+    .forceTypeRect {
+      fill: #fc6980;
+    }
+
+    path {
+      stroke: #fc6980;
+    }
+
+    &:hover {
+      .forceNode {
+        fill: #ff8593;
+        stroke: #ffe6e7;
+      }
+    }
+
+    &.forceClick {
+      path {
+        stroke: #c7445a;
+      }
+
+      .forceNode {
+        stroke: #fc6980;
+      }
+
+      .innerCircle {
+        fill: #ff8593;
+      }
+    }
+  }
+
+  &.middle {
+    &.forceDisabeld {
+
+      use,
+      .forceTypeRect {
+        fill: #FBE7A5 !important;
+      }
+
+      .forceNode {
+        fill: #FFF5DF !important;
+        stroke: #FBE7A5 !important;
+      }
+    }
+
+    path {
+      stroke: #ffb952;
+    }
+
+    use,
+    .forceTypeRect {
+      fill: #ffb952;
+    }
+
+    .forceNode {
+      fill: #fff5df;
+      stroke: #ffb952;
+    }
+
+    &:hover {
+      .forceNode {
+        fill: #ffc96b;
+        stroke: #fff5df;
+      }
+    }
+
+    &.forceClick {
+      path {
+        stroke: #e09a22;
+      }
+
+      .forceNode {
+        stroke: #ffb952;
+      }
+
+      .innerCircle {
+        fill: #ffc96b;
+      }
+    }
+  }
+
+  &.low {
+
+    &.forceDisabeld {
+
+      use,
+      .forceTypeRect {
+        fill: #A3D3FF;
+      }
+
+      .forceNode {
+        fill: #E6F0FF;
+        stroke: #A3D3FF;
+      }
+    }
+
+    path {
+      stroke: #47a1ff;
+    }
+
+    use,
+    .forceTypeRect {
+      fill: #47a1ff;
+    }
+
+    .forceNode {
+      fill: #e6f0ff;
+      stroke: #47a1ff;
+    }
+
+    &:hover {
+      .forceNode {
+        fill: #7abaff;
+        stroke: #e6f0ff;
+      }
+    }
+
+    &.forceClick {
+      path {
+        stroke: #0080c9;
+      }
+
+      .forceNode {
+        stroke: #47a1ff;
+      }
+
+      .innerCircle {
+        fill: #7abaff;
+      }
+    }
+  }
+
+  &.abnormal {
+    &.forceDisabeld {
+
+      use,
+      .forceTypeRect {
+        fill: #C0EFFD;
+      }
+
+      .forceNode {
+        fill: #EBFAFF;
+        stroke: #C0EFFD;
+      }
+    }
+
+    path {
+      stroke: #a2e5ff;
+    }
+
+    use,
+    .forceTypeRect {
+      fill: #80d9f2;
+    }
+
+    .forceNode {
+      fill: #ebfaff;
+      stroke: #80d9f2;
+    }
+
+    &:hover {
+      .forceNode {
+        fill: #bdf0ff;
+        stroke: #ebfaff;
+      }
+    }
+
+    &.forceClick {
+      path {
+        stroke: #5caecc;
+      }
+
+      .forceNode {
+        stroke: #a2e5ff;
+      }
+
+      .innerCircle {
+        fill: #bdf0ff;
+      }
+    }
+  }
+
+  &.both {
+    &.forceDisabeld {
+
+      use,
+      .forceTypeRect {
+        fill: #FBD2B5;
+      }
+
+      .forceNode {
+        fill: #FFECE2;
+        stroke: #FBD2B5;
+      }
+    }
+
+    path {
+      stroke: #ff8a65;
+    }
+
+    use,
+    .forceTypeRect {
+      fill: #ff8a65;
+    }
+
+    .forceNode {
+      fill: #ffece2;
+      stroke: #ff8a65;
+    }
+
+    &:hover {
+      .forceNode {
+        fill: #ffa77f;
+        stroke: #ffece2;
+      }
+    }
+
+    &.forceClick {
+      path {
+        stroke: #d46f3e;
+      }
+
+      .forceNode {
+        stroke: #ff8a65;
+      }
+
+      .innerCircle {
+        fill: #ffa77f;
+      }
+    }
+  }
+
+  &:hover,
+  &.forceClick {
+    .forceTypeText{
+      transform:translate(11px, 20px);
+    }
+    .forceTypeRect {
+      x:5;
+      y:5;
+    }
+    use{
+      x:-12;
+      y:-15;
+    }
+    text {
+      font-size: 10px;
+    }
+  }
+  text{
+    font-size: 6px;
+    fill: #fff;
+  }
+}
+
+.linetext {
+  font-size: 12px;
+}
+
+text {
+  user-select: none;
+}
+
+#squareSelect {
+  stroke-width: 1;
+  stroke: #0065ff;
+  fill: rgba(0, 101, 255, 0.14);
+}

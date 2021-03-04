@@ -30,7 +30,10 @@ module.exports = {
     loaderOptions: {
       stylus: {
         import: ['~assets/stylus/index.styl']
-      }
+      },
+      sass: {
+        // prependData: `@import "./src/assets/styles/base";`,
+    },
     }
   },
   configureWebpack: () => {
